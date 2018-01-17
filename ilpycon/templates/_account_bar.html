@@ -5,13 +5,21 @@
 <ul class="navbar-nav">
     {% if request.user.is_authenticated %}
         <li class="navbar-text">
-            <i class="fa fa-user"></i> {% user_display request.user %}
+            <i class="fas fa-user"></i> {% user_display request.user %}
+        </li>
+        <li class="navbar-item">
+            <a class="nav-link" href="{% url "dashboard" %}"><i class="fas fa-tasks"></i> {% trans "Dashboard" %}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{% url 'account_settings' %}"><i class="fa fa-cog"></i> {% trans "Settings" %}</a>
+            <a class="nav-link" href="{% url 'account_settings' %}"><i class="fas fa-cog"></i> {% trans "Settings" %}</a>
         </li>
+        {% if request.user.is_staff %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url THEME_ADMIN_URL|default:"admin:index" %}"><i class="fas fa-cog"></i> {% trans "Admin" %}</a>
+            </li>
+        {% endif %}
         <li class="nav-item">
-            <a class="nav-link" id="account_logout" href="{% url 'account_logout' %}"><i class="fa fa-power-off"></i> {% trans "Log out" %}</a>
+            <a class="nav-link" id="account_logout" href="{% url 'account_logout' %}"><i class="fas fa-power-off"></i> {% trans "Log out" %}</a>
         </li>
     {% else %}
         <li class="nav-item"><a class="nav-link" href="{% url 'account_login' %}">{% trans "Log in" %}</a></li>

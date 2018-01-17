@@ -1,0 +1,11 @@
+django-model-utils
+django-sitetree
+django-taggit
+django-timezone-field
+django-timezones
+easy-thumbnails
+html5lib
+markdown
+pytz
+django-markitup
+Pillow

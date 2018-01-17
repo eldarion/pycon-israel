@@ -100,6 +100,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "account.context_processors.account",
                 "ilpycon.context_processors.settings"
+                "ilpycon.symposion.reviews.context_processors.reviews",
             ],
         },
     },
@@ -123,6 +124,7 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
+    "django.contrib.humanize",
     "django.contrib.messages",
     "django.contrib.sessions",
     "django.contrib.sites",
@@ -134,11 +136,29 @@ INSTALLED_APPS = [
 
     # external
     "account",
+    "easy_thumbnails",
+    "markitup",
     "pinax.eventlog",
     "pinax.webanalytics",
+    "sitetree",
+    "taggit",
+    "timezones",
 
     # project
     "ilpycon",
+    "ilpycon.proposals",
+
+    # Symposion
+    "ilpycon.symposion",
+    # "ilpycon.symposion.boxes",
+    # "ilpycon.symposion.cms",
+    "ilpycon.symposion.conference",
+    "ilpycon.symposion.proposals",
+    "ilpycon.symposion.reviews",
+    "ilpycon.symposion.schedule",
+    "ilpycon.symposion.speakers",
+    "ilpycon.symposion.sponsorship",
+    "ilpycon.symposion.teams",
 ]
 
 ADMIN_URL = "admin:index"
@@ -182,11 +202,27 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 ACCOUNT_OPEN_SIGNUP = True
 ACCOUNT_EMAIL_UNIQUE = True
 ACCOUNT_EMAIL_CONFIRMATION_REQUIRED = False
-ACCOUNT_LOGIN_REDIRECT_URL = "home"
-ACCOUNT_LOGOUT_REDIRECT_URL = "home"
+ACCOUNT_LOGIN_REDIRECT_URL = "dashboard"
+ACCOUNT_LOGOUT_REDIRECT_URL = "dashboard"
 ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 2
 ACCOUNT_USE_AUTH_AUTHENTICATE = True
+ACCOUNT_USER_DISPLAY = lambda user: user.email  # noqa
 
 AUTHENTICATION_BACKENDS = [
-    "account.auth_backends.UsernameAuthenticationBackend",
+    # Permissions Backends
+    "symposion.teams.backends.TeamPermissionsBackend",
+
+    # Auth backends
+    "account.auth_backends.EmailAuthenticationBackend",
 ]
+
+MARKITUP_SET = "markitup/sets/markdown"
+MARKITUP_FILTER = ["symposion.markdown_parser.parse", {}]
+MARKITUP_SKIN = "markitup/skins/simple"
+
+CONFERENCE_ID = 1
+SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
+PROPOSAL_FORMS = {
+    "tutorial": "{{ project_name }}.proposals.forms.TutorialProposalForm",
+    "talk": "{{ project_name }}.proposals.forms.TalkProposalForm",
+}

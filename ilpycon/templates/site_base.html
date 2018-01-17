@@ -44,6 +44,23 @@
 {% endblock %}
 
 
+{% block body_base %}
+    <main>
+        <div id="content-section" class="row">
+            <div id="content-body" class="col-9">
+                {% block body %}
+                {% endblock %}
+            </div>
+            <div class="col-3">
+                {% block sidebar %}
+                    {% include "_default_sidebar.html" %}
+                {% endblock %}
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+
 {% block footer %}
     {% include "_footer.html" %}
 {% endblock %}
