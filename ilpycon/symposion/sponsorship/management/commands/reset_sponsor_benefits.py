@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from symposion.sponsorship.models import Sponsor, SponsorBenefit, SponsorLevel
+from ilpycon.symposion.sponsorship.models import Sponsor, SponsorBenefit, SponsorLevel
 
 
 class Command(BaseCommand):

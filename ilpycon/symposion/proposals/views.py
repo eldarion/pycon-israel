@@ -5,7 +5,7 @@ import sys
 
 from django.conf import settings
 from django.core.exceptions import ObjectDoesNotExist
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db.models import Q
 from django.http import Http404, HttpResponse, HttpResponseForbidden
 from django.shortcuts import render, redirect, get_object_or_404
@@ -19,14 +19,14 @@ from django.utils.translation import ugettext_lazy as _
 from account.decorators import login_required
 from account.models import EmailAddress
 
-from symposion.proposals.models import (
+from ilpycon.symposion.proposals.models import (
     ProposalBase, ProposalSection, ProposalKind
 )
-from symposion.proposals.models import SupportingDocument, AdditionalSpeaker
-from symposion.speakers.models import Speaker
-from symposion.utils.mail import send_email
+from ilpycon.symposion.proposals.models import SupportingDocument, AdditionalSpeaker
+from ilpycon.symposion.speakers.models import Speaker
+from ilpycon.symposion.utils.mail import send_email
 
-from symposion.proposals.forms import (
+from ilpycon.symposion.proposals.forms import (
     AddSpeakerForm, SupportingDocumentCreateForm
 )
 
@@ -239,8 +239,8 @@ def proposal_detail(request, pk):
     if request.user not in [p.user for p in proposal.speakers()]:
         raise Http404()
 
-    if "symposion.reviews" in settings.INSTALLED_APPS:
-        from symposion.reviews.forms import SpeakerCommentForm
+    if "ilpycon.symposion.reviews" in settings.INSTALLED_APPS:
+        from ilpycon.symposion.reviews.forms import SpeakerCommentForm
         message_form = SpeakerCommentForm()
         if request.method == "POST":
             message_form = SpeakerCommentForm(request.POST)

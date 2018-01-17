@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from django.contrib import admin
 
-from symposion.sponsorship.models import (
+from ilpycon.symposion.sponsorship.models import (
     Benefit,
     BENEFITS,
     BenefitLevel,

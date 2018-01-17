@@ -9,6 +9,5 @@ from account.decorators import login_required
 @login_required
 def dashboard(request):
     if request.session.get("pending-token"):
-        return redirect("speaker_create_token",
-                        request.session["pending-token"])
+        return redirect("speaker_create_token", request.session["pending-token"])
     return render(request, "dashboard.html")

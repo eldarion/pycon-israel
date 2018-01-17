@@ -99,7 +99,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.messages.context_processors.messages",
                 "account.context_processors.account",
-                "ilpycon.context_processors.settings"
+                "ilpycon.context_processors.settings",
                 "ilpycon.symposion.reviews.context_processors.reviews",
             ],
         },
@@ -137,7 +137,7 @@ INSTALLED_APPS = [
     # external
     "account",
     "easy_thumbnails",
-    "markitup",
+    "pinax.boxes",
     "pinax.eventlog",
     "pinax.webanalytics",
     "sitetree",
@@ -209,20 +209,16 @@ ACCOUNT_USE_AUTH_AUTHENTICATE = True
 ACCOUNT_USER_DISPLAY = lambda user: user.email  # noqa
 
 AUTHENTICATION_BACKENDS = [
-    # Permissions Backends
-    "symposion.teams.backends.TeamPermissionsBackend",
+    # Permissions Backends - can't have multiple
+    "ilpycon.symposion.teams.backends.TeamPermissionsBackend",
 
     # Auth backends
     "account.auth_backends.EmailAuthenticationBackend",
 ]
 
-MARKITUP_SET = "markitup/sets/markdown"
-MARKITUP_FILTER = ["symposion.markdown_parser.parse", {}]
-MARKITUP_SKIN = "markitup/skins/simple"
-
 CONFERENCE_ID = 1
 SYMPOSION_PAGE_REGEX = r"(([\w-]{1,})(/[\w-]{1,})*)/"
 PROPOSAL_FORMS = {
-    "tutorial": "{{ project_name }}.proposals.forms.TutorialProposalForm",
-    "talk": "{{ project_name }}.proposals.forms.TalkProposalForm",
+    "tutorial": "ilpycon.proposals.forms.TutorialProposalForm",
+    "talk": "ilpycon.proposals.forms.TalkProposalForm",
 }

@@ -1,1 +1,1 @@
-default_app_config = "symposion.schedule.apps.ScheduleConfig"
+default_app_config = "ilpycon.symposion.schedule.apps.ScheduleConfig"

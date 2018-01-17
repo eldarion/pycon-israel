@@ -1,1 +1,1 @@
-default_app_config = "symposion.reviews.apps.ReviewsConfig"
+default_app_config = "ilpycon.symposion.reviews.apps.ReviewsConfig"

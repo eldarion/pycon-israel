@@ -8,15 +8,15 @@ from django.views.decorators.http import require_POST
 from account.decorators import login_required
 
 # @@@ switch to pinax-teams
-from symposion.teams.models import Team
+from ilpycon.symposion.teams.models import Team
 
-from symposion.conf import settings
-from symposion.proposals.models import ProposalBase, ProposalSection
-from symposion.utils.mail import send_email
+from ilpycon.symposion.conf import settings
+from ilpycon.symposion.proposals.models import ProposalBase, ProposalSection
+from ilpycon.symposion.utils.mail import send_email
 
-from symposion.reviews.forms import ReviewForm, SpeakerCommentForm
-from symposion.reviews.forms import BulkPresentationForm
-from symposion.reviews.models import (
+from ilpycon.symposion.reviews.forms import ReviewForm, SpeakerCommentForm
+from ilpycon.symposion.reviews.forms import BulkPresentationForm
+from ilpycon.symposion.reviews.models import (
     ReviewAssignment, Review, LatestVote, ProposalResult, NotificationTemplate,
     ResultNotification
 )

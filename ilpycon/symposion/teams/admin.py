@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from symposion.teams.models import Team, Membership
+from ilpycon.symposion.teams.models import Team, Membership
 
 admin.site.register(Team, prepopulated_fields={"slug": ("name",)})
 

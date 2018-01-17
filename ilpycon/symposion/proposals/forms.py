@@ -3,7 +3,7 @@ from django import forms
 from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
 
-from symposion.proposals.models import SupportingDocument
+from ilpycon.symposion.proposals.models import SupportingDocument
 
 
 # @@@ generic proposal form

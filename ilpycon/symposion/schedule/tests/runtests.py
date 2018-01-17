@@ -60,4 +60,4 @@ def run_tests(*test_args):
 
 
 if __name__ == '__main__':
-    run_tests("symposion.schedule.tests.test_views")
+    run_tests("ilpycon.symposion.schedule.tests.test_views")

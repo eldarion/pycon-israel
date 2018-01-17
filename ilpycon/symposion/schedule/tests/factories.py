@@ -5,8 +5,8 @@ import factory
 
 from factory import fuzzy
 
-from symposion.schedule.models import Schedule, Day, Slot, SlotKind
-from symposion.conference.models import Section, Conference
+from ilpycon.symposion.schedule.models import Schedule, Day, Slot, SlotKind
+from ilpycon.symposion.conference.models import Section, Conference
 
 
 class ConferenceFactory(factory.DjangoModelFactory):

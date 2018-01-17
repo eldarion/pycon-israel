@@ -7,9 +7,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from account.decorators import login_required
 
-from symposion.utils.mail import send_email
-from symposion.teams.forms import TeamInvitationForm
-from symposion.teams.models import Team, Membership
+from ilpycon.symposion.utils.mail import send_email
+from ilpycon.symposion.teams.forms import TeamInvitationForm
+from ilpycon.symposion.teams.models import Team, Membership
 
 
 # perm checks

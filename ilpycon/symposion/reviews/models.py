@@ -10,9 +10,9 @@ from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
-from symposion.markdown_parser import parse
-from symposion.proposals.models import ProposalBase
-from symposion.schedule.models import Presentation
+from ilpycon.symposion.markdown_parser import parse
+from ilpycon.symposion.proposals.models import ProposalBase
+from ilpycon.symposion.schedule.models import Presentation
 
 
 def score_expression():
@@ -50,8 +50,8 @@ class ReviewAssignment(models.Model):
         (AUTO_ASSIGNED_LATER, _("auto-assigned, later")),
     ]
 
-    proposal = models.ForeignKey(ProposalBase, verbose_name=_("Proposal"))
-    user = models.ForeignKey(User, verbose_name=_("User"))
+    proposal = models.ForeignKey(ProposalBase, verbose_name=_("Proposal"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
 
     origin = models.IntegerField(choices=ORIGIN_CHOICES, verbose_name=_("Origin"))
 
@@ -90,8 +90,8 @@ class ReviewAssignment(models.Model):
 
 
 class ProposalMessage(models.Model):
-    proposal = models.ForeignKey(ProposalBase, related_name="messages", verbose_name=_("Proposal"))
-    user = models.ForeignKey(User, verbose_name=_("User"))
+    proposal = models.ForeignKey(ProposalBase, related_name="messages", verbose_name=_("Proposal"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
 
     message = models.TextField(verbose_name=_("Message"))
     message_html = models.TextField(blank=True)
@@ -110,8 +110,8 @@ class ProposalMessage(models.Model):
 class Review(models.Model):
     VOTES = VOTES
 
-    proposal = models.ForeignKey(ProposalBase, related_name="reviews", verbose_name=_("Proposal"))
-    user = models.ForeignKey(User, verbose_name=_("User"))
+    proposal = models.ForeignKey(ProposalBase, related_name="reviews", verbose_name=_("Proposal"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
 
     # No way to encode "-0" vs. "+0" into an IntegerField, and I don't feel
     # like some complicated encoding system.
@@ -195,8 +195,8 @@ class Review(models.Model):
 class LatestVote(models.Model):
     VOTES = VOTES
 
-    proposal = models.ForeignKey(ProposalBase, related_name="votes", verbose_name=_("Proposal"))
-    user = models.ForeignKey(User, verbose_name=_("User"))
+    proposal = models.ForeignKey(ProposalBase, related_name="votes", verbose_name=_("Proposal"), on_delete=models.CASCADE)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
 
     # No way to encode "-0" vs. "+0" into an IntegerField, and I don't feel
     # like some complicated encoding system.
@@ -218,7 +218,7 @@ class LatestVote(models.Model):
 
 
 class ProposalResult(models.Model):
-    proposal = models.OneToOneField(ProposalBase, related_name="result", verbose_name=_("Proposal"))
+    proposal = models.OneToOneField(ProposalBase, related_name="result", verbose_name=_("Proposal"), on_delete=models.CASCADE)
     score = models.DecimalField(max_digits=5, decimal_places=2, default=Decimal("0.00"), verbose_name=_("Score"))
     comment_count = models.PositiveIntegerField(default=0, verbose_name=_("Comment count"))
     vote_count = models.PositiveIntegerField(default=0, verbose_name=_("Vote count"))
@@ -298,8 +298,8 @@ class ProposalResult(models.Model):
 
 
 class Comment(models.Model):
-    proposal = models.ForeignKey(ProposalBase, related_name="comments", verbose_name=_("Proposal"))
-    commenter = models.ForeignKey(User, verbose_name=_("Commenter"))
+    proposal = models.ForeignKey(ProposalBase, related_name="comments", verbose_name=_("Proposal"), on_delete=models.CASCADE)
+    commenter = models.ForeignKey(User, verbose_name=_("Commenter"), on_delete=models.CASCADE)
     text = models.TextField(verbose_name=_("Text"))
     text_html = models.TextField(blank=True)
 
@@ -330,7 +330,7 @@ class NotificationTemplate(models.Model):
 
 class ResultNotification(models.Model):
 
-    proposal = models.ForeignKey(ProposalBase, related_name="notifications", verbose_name=_("Proposal"))
+    proposal = models.ForeignKey(ProposalBase, related_name="notifications", verbose_name=_("Proposal"), on_delete=models.CASCADE)
     template = models.ForeignKey(NotificationTemplate, null=True, blank=True,
                                  on_delete=models.SET_NULL, verbose_name=_("Template"))
     timestamp = models.DateTimeField(default=datetime.now, verbose_name=_("Timestamp"))

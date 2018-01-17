@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import TestCase
 
-from symposion.conference.models import Conference, Section
+from ilpycon.symposion.conference.models import Conference, Section
 
 from ..forms import ScheduleSectionForm
 from ..models import Day, Room, Schedule, Slot, SlotKind

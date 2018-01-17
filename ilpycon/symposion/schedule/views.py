@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 import json
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.http import Http404, HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import loader, Context
@@ -12,9 +12,9 @@ from django.contrib.sites.models import Site
 
 from account.decorators import login_required
 
-from symposion.schedule.forms import SlotEditForm, ScheduleSectionForm
-from symposion.schedule.models import Schedule, Day, Slot, Presentation, Session, SessionRole
-from symposion.schedule.timetable import TimeTable
+from ilpycon.symposion.schedule.forms import SlotEditForm, ScheduleSectionForm
+from ilpycon.symposion.schedule.models import Schedule, Day, Slot, Presentation, Session, SessionRole
+from ilpycon.symposion.schedule.timetable import TimeTable
 
 
 def fetch_schedule(slug):

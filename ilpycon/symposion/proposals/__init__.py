@@ -1,1 +1,1 @@
-default_app_config = "symposion.proposals.apps.ProposalsConfig"
+default_app_config = "ilpycon.symposion.proposals.apps.ProposalsConfig"

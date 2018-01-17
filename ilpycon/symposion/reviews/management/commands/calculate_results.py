@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 
-from symposion.reviews.models import ProposalResult
+from ilpycon.symposion.reviews.models import ProposalResult
 
 
 class Command(BaseCommand):

@@ -2,14 +2,14 @@ from __future__ import unicode_literals
 
 import datetime
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 
 from django.contrib.auth.models import User
 
-from symposion.markdown_parser import parse
+from ilpycon.symposion.markdown_parser import parse
 
 
 @python_2_unicode_compatible
@@ -20,7 +20,7 @@ class Speaker(models.Model):
         (2, "Two")
     ]
 
-    user = models.OneToOneField(User, null=True, related_name="speaker_profile", verbose_name=_("User"))
+    user = models.OneToOneField(User, null=True, related_name="speaker_profile", verbose_name=_("User"), on_delete=models.CASCADE)
     name = models.CharField(verbose_name=_("Name"), max_length=100,
                             help_text=_("As you would like it to appear in the"
                                         " conference program."))

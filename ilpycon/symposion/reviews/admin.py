@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from symposion.reviews.models import NotificationTemplate, ProposalResult
+from ilpycon.symposion.reviews.models import NotificationTemplate, ProposalResult
 
 
 admin.site.register(

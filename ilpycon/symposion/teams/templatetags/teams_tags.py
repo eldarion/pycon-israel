@@ -1,6 +1,6 @@
 from django import template
 
-from symposion.teams.models import Team
+from ilpycon.symposion.teams.models import Team
 
 register = template.Library()
 

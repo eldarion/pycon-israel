@@ -81,9 +81,9 @@ MEMBERSHIP_STATE_CHOICES = [
 class Membership(models.Model):
 
     user = models.ForeignKey(User, related_name="memberships",
-                             verbose_name=_("User"))
+                             verbose_name=_("User"), on_delete=models.CASCADE)
     team = models.ForeignKey(Team, related_name="memberships",
-                             verbose_name=_("Team"))
+                             verbose_name=_("Team"), on_delete=models.CASCADE)
     state = models.CharField(max_length=20, choices=MEMBERSHIP_STATE_CHOICES,
                              verbose_name=_("State"))
     message = models.TextField(blank=True, verbose_name=_("Message"))

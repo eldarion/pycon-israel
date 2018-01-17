@@ -4,6 +4,6 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class ReviewsConfig(AppConfig):
-    name = "symposion.reviews"
+    name = "ilpycon.symposion.reviews"
     label = "symposion_reviews"
     verbose_name = _("Symposion Reviews")

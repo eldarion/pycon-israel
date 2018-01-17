@@ -1,1 +1,1 @@
-default_app_config = "symposion.sponsorship.apps.SponsorshipConfig"
+default_app_config = "ilpycon.symposion.sponsorship.apps.SponsorshipConfig"

@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from django.contrib.auth.models import User
 
-from symposion.teams.models import Membership
+from ilpycon.symposion.teams.models import Membership
 
 
 class TeamInvitationForm(forms.Form):

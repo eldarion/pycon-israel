@@ -7,5 +7,4 @@ easy-thumbnails
 html5lib
 markdown
 pytz
-django-markitup
 Pillow

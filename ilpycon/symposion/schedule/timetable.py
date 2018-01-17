@@ -3,7 +3,7 @@ import itertools
 
 from django.db.models import Count, Min
 
-from symposion.schedule.models import Room, Slot, SlotRoom
+from ilpycon.symposion.schedule.models import Room, Slot, SlotRoom
 
 
 class TimeTable(object):

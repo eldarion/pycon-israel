@@ -1,1 +1,1 @@
-default_app_config = "symposion.speakers.apps.SpeakersConfig"
+default_app_config = "ilpycon.symposion.speakers.apps.SpeakersConfig"

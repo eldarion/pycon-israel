@@ -1,7 +1,5 @@
 from django import forms
 
-from markitup.widgets import MarkItUpWidget
-
 from .models import TalkProposal, TutorialProposal
 
 
@@ -28,10 +26,6 @@ class TalkProposalForm(ProposalForm):
             "additional_notes",
             "recording_release",
         ]
-        widgets = {
-            "abstract": MarkItUpWidget(),
-            "additional_notes": MarkItUpWidget(),
-        }
 
 
 class TutorialProposalForm(ProposalForm):
@@ -46,7 +40,3 @@ class TutorialProposalForm(ProposalForm):
             "additional_notes",
             "recording_release",
         ]
-        widgets = {
-            "abstract": MarkItUpWidget(),
-            "additional_notes": MarkItUpWidget(),
-        }

@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 
-from symposion.reviews.models import ReviewAssignment
-from symposion.proposals.models import ProposalBase
+from ilpycon.symposion.reviews.models import ReviewAssignment
+from ilpycon.symposion.proposals.models import ProposalBase
 
 
 class Command(BaseCommand):

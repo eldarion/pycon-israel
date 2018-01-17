@@ -1,8 +1,8 @@
 from django import template
 from django.template.defaultfilters import linebreaks, urlize
 
-from symposion.conference.models import current_conference
-from symposion.sponsorship.models import Sponsor, SponsorLevel
+from ilpycon.symposion.conference.models import current_conference
+from ilpycon.symposion.sponsorship.models import Sponsor, SponsorLevel
 
 
 register = template.Library()

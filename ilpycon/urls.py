@@ -18,11 +18,10 @@ urlpatterns = [
     path("speaker/", include("ilpycon.symposion.speakers.urls")),
     path("proposals/", include("ilpycon.symposion.proposals.urls")),
     path("sponsors/", include("ilpycon.symposion.sponsorship.urls")),
-    # path("boxes/", include("ilpycon.symposion.boxes.urls")),
+    path("boxes/", include("pinax.boxes.urls")),
     path("teams/", include("ilpycon.symposion.teams.urls")),
     path("reviews/", include("ilpycon.symposion.reviews.urls")),
     path("schedule/", include("ilpycon.symposion.schedule.urls")),
-    path("markitup/", include("markitup.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

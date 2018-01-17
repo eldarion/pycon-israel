@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-# from symposion.proposals.actions import export_as_csv_action
-from symposion.proposals.models import ProposalSection, ProposalKind
+# from ilpycon.symposion.proposals.actions import export_as_csv_action
+from ilpycon.symposion.proposals.models import ProposalSection, ProposalKind
 
 
 # admin.site.register(Proposal,

@@ -20,9 +20,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from account.decorators import login_required
 
-from symposion.sponsorship.forms import SponsorApplicationForm, \
+from ilpycon.symposion.sponsorship.forms import SponsorApplicationForm, \
     SponsorDetailsForm, SponsorBenefitsFormSet
-from symposion.sponsorship.models import Benefit, Sponsor, SponsorBenefit, \
+from ilpycon.symposion.sponsorship.models import Benefit, Sponsor, SponsorBenefit, \
     SponsorLevel
 
 
