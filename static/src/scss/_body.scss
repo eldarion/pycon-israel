@@ -15,6 +15,7 @@ main {
   @include make-container-max-widths();
 }
 footer {
+  margin-top: 40px;
   padding: 20px 0;
   background-color: $footer-bg-color;
   > div {

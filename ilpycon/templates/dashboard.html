@@ -10,31 +10,32 @@
 {% block body_class %}auth{% endblock %}
 
 {% block body %}
-    <div class="dashboard-panel">
-        <div class="dashboard-panel-header">
-            <i class="fa fa-bullhorn"></i>
-            <h3>{% trans "Speaking" %}</h3>
-            <div class="pull-right header-actions">
-                {% if not user.speaker_profile %}
-                    <a href="{% url "speaker_create" %}" class="btn btn-default">
-                        <i class="fa fa-plus-sign"></i> Create a speaker profile
-                    </a>
-                {% else %}
-                    <a href="{% url "speaker_edit" %}" class="btn btn-default">
-                        <i class="fa fa-pencil"></i> Edit your speaker profile
-                    </a>
-                    <a href="{% url "proposal_submit" %}" class="btn btn-default">
-                        <i class="fa fa-plus-sign"></i> Submit a new proposal
-                    </a>
-                {% endif %}
-            </div>
-        </div>
-
-        <div class="dashboard-panel-content">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="d-flex justify-content-between card-title">
+                <div class="title">
+                    <i class="fas fa-bullhorn"></i>
+                    {% trans "Speaking" %}
+                </div>
+                <div class="header-actions">
+                    {% if not user.speaker_profile %}
+                        <a href="{% url "speaker_create" %}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-plus"></i> Create a speaker profile
+                        </a>
+                    {% else %}
+                        <a href="{% url "speaker_edit" %}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-pencil-alt"></i> Edit your speaker profile
+                        </a>
+                        <a href="{% url "proposal_submit" %}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-plus"></i> Submit a new proposal
+                        </a>
+                    {% endif %}
+                </div>
+            </h4>
             {% if not user.speaker_profile %}
-                <p>To submit a proposal, you must first <a href="{% url "speaker_create" %}">create a speaker profile</a>.</p>
+                <p class="lead mt-4">To submit a proposal, you must first <a href="{% url "speaker_create" %}">create a speaker profile</a>.</p>
             {% else %}
-                <h4>Your Proposals</h4>
+                <h5>Your Proposals</h5>
                 {% if user.speaker_profile.proposals.exists %}
                     <table class="table">
                         <tr>
@@ -48,12 +49,12 @@
                         {% endfor %}
                     </table>
                 {% else %}
-                    <p>No proposals submitted yet.</p>
+                    <p class="lead mt-4">No proposals submitted yet.</p>
                 {% endif %}
 
                 {% associated_proposals as associated_proposals %}
                 {% if associated_proposals %}
-                    <h4>Proposals you have joined as an additional speaker</h4>
+                    <h5>Proposals you have joined as an additional speaker</h5>
                     <table class="table">
                         <tr>
                             <th>Title</th>
@@ -69,7 +70,7 @@
 
                 {% pending_proposals as pending_proposals %}
                 {% if pending_proposals %}
-                    <h4>Proposals you have been invited to join</h4>
+                    <h5>Proposals you have been invited to join</h5>
                     <table class="table">
                         <tr>
                             <th>Title</th>
@@ -86,24 +87,26 @@
         </div>
     </div>
 
-    <div class="dashboard-panel">
-        <div class="dashboard-panel-header">
-            <i class="fa fa-briefcase"></i>
-            <h3>{% trans "Sponsorship" %}</h3>
-            <div class="pull-right header-actions">
-                {% if not user.sponsorships.exists %}
-                    <a href="{% url "sponsor_apply" %}" class="btn btn-default">
-                        <i class="fa fa-plus-sign"></i> Apply to be a sponsor
-                    </a>
-                {% endif %}
-            </div>
-        </div>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="d-flex justify-content-between card-title">
+                <div class="title">
+                    <i class="fas fa-briefcase"></i>
+                    {% trans "Sponsorship" %}
+                </div>
+                <div class="header-actions">
+                    {% if not user.sponsorships.exists %}
+                        <a href="{% url "sponsor_apply" %}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-plus"></i> Apply to be a sponsor
+                        </a>
+                    {% endif %}
+                </div>
+            </h4>
 
-        <div class="dashboard-panel-content">
             {% if not user.sponsorships.exists %}
-                <p>If you or your organization would be interested in sponsorship opportunities, <a href="{% url "sponsor_apply" %}">use our online form to apply to be a sponsor</a>.
+                <p class="lead mt-4">If you or your organization would be interested in sponsorship opportunities, <a href="{% url "sponsor_apply" %}">use our online form to apply to be a sponsor</a>.
             {% else %}
-                <h4>Your Sponsorship</h4>
+                <h5>Your Sponsorship</h5>
                 <ul>
                     {% for sponsorship in user.sponsorships.all %}
                         <li>
@@ -117,7 +120,7 @@
                 </ul>
             {% endif %}
             {% if user.is_staff %}
-                <p>
+                <p class="lead mt-4">
                     As staff, you can directly <a href="{% url "sponsor_add" %}">add a sponsor</a> if the organization isn't
                     applying themselves.
                 </p>
@@ -126,23 +129,18 @@
     </div>
 
     {% if review_sections %}
-        <div class="dashboard-panel">
-            <div class="dashboard-panel-header">
-                <i class="fa fa-briefcase"></i>
-                <h3>{% trans "Reviews" %}</h3>
-            </div>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title"><i class="fa fa-briefcase"></i> {% trans "Reviews" %}</h4>
 
-            <div class="dashboard-panel-content">
-                <h4>Reviews by Section</h4>
-
+                {% for section in review_sections %}
+                <h5>{{ section }}</h5>
                 <ul>
-                    {% for section in review_sections %}
-                        <h5>{{ section }}</h5>
-                            <li><a href="{% url "review_section" section.section.slug %}">All</a></li>
-                            <li><a href="{% url "user_reviewed" section.section.slug %}">Reviewed by you</a></li>
-                            <li><a href="{% url "user_not_reviewed" section.section.slug %}">Not Reviewed by you</a></li>
-                    {% endfor %}
+                    <li><a href="{% url "review_section" section.section.slug %}">All</a></li>
+                    <li><a href="{% url "user_reviewed" section.section.slug %}">Reviewed by you</a></li>
+                    <li><a href="{% url "user_not_reviewed" section.section.slug %}">Not Reviewed by you</a></li>
                 </ul>
+                {% endfor %}
 
                 {% comment %}
                 <h4>My Assignments</h4>
@@ -170,15 +168,15 @@
 
     {% available_teams as available_teams %}
     {% if user.memberships.exists or available_teams %}
-        <div class="dashboard-panel">
-            <div class="dashboard-panel-header">
-                <i class="fa fa-group"></i>
-                <h3>{% trans "Teams" %}</h3>
-            </div>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <i class="fa fa-group"></i>
+                    {% trans "Teams" %}
+                </h4>
 
-            <div class="dashboard-panel-content">
                 {% if user.memberships.exists %}
-                    <h4>Your Teams</h4>
+                    <h5>Your Teams</h5>
                     <table class="table table-striped">
                         {% for membership in user.memberships.all %}
                             <tr>
@@ -199,7 +197,7 @@
                     </table>
                 {% endif %}
                 {% if available_teams %}
-                    <h4>Available Teams</h4>
+                    <h5>Available Teams</h5>
                     <table class="table table-striped">
                         {% for team in available_teams %}
                             <tr>
