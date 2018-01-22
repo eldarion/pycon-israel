@@ -1,0 +1,13 @@
+{% extends "site_base.html" %}
+
+{% load bootstrap %}
+
+{% block body %}
+<h1 class="d-flex justify-content-between">
+    {{ page.title }}
+    {% if request.user.is_staff %}<a href="{% url "pinax_pages:pages_page_edit" page.path %}" class="mt-auto btn btn-outline-info btn-sm"><i class="fas fa-pencil-alt"></i> Edit</a>{% endif %}
+</h1>
+<div class="page-content">
+    {{ page.body_html|safe }}
+</div>
+{% endblock %}

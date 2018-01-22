@@ -139,6 +139,7 @@ INSTALLED_APPS = [
     "easy_thumbnails",
     "pinax.boxes",
     "pinax.eventlog",
+    "pinax.pages",
     "pinax.webanalytics",
     "sitetree",
     "taggit",
@@ -150,8 +151,6 @@ INSTALLED_APPS = [
 
     # Symposion
     "ilpycon.symposion",
-    # "ilpycon.symposion.boxes",
-    # "ilpycon.symposion.cms",
     "ilpycon.symposion.conference",
     "ilpycon.symposion.proposals",
     "ilpycon.symposion.reviews",

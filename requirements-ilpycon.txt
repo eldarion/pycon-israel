@@ -8,3 +8,4 @@ html5lib
 markdown
 pytz
 Pillow
+pinax-pages==0.5.0

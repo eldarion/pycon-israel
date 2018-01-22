@@ -1,0 +1,14 @@
+{% extends "site_base.html" %}
+
+{% load bootstrap %}
+
+{% block body %}
+<h1>Edit {{ path }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form|bootstrap }}
+    <div class="form-actions">
+        <button class="btn btn-primary">Save</button>
+    </div>
+</form>
+{% endblock %}

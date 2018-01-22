@@ -22,6 +22,7 @@ urlpatterns = [
     path("teams/", include("ilpycon.symposion.teams.urls")),
     path("reviews/", include("ilpycon.symposion.reviews.urls")),
     path("schedule/", include("ilpycon.symposion.schedule.urls")),
+    path("", include("pinax.pages.urls", namespace="pinax_pages"))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

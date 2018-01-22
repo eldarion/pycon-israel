@@ -2,7 +2,7 @@
 
 {% load bootstrap %}
 {% load i18n %}
-{% load boxes_tags %}
+{% load pinax_boxes_tags %}
 
 {% block head_title %}{% trans "Apply to be a Sponsor" %}{% endblock %}
 
@@ -20,7 +20,7 @@
             <input class="btn btn-primary" type="submit" value="Apply" />
             <a class="btn btn-default" href="{% url "dashboard" %}">Cancel</a>
             <p class="help-block">
-                <small>By submitting this sponsor application you are agreeing to the <a href="{% url "cms_page" "sponsor/terms/" %}" target="_blank">terms and conditions</a>.</small>
+                <small>By submitting this sponsor application you are agreeing to the <a href="{% url "pinax_pages:pages_page" "sponsor/terms/" %}" target="_blank">terms and conditions</a>.</small>
             </p>
         </div>
     </form>
