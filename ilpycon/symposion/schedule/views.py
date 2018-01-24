@@ -274,7 +274,7 @@ def session_detail(request, session_id):
     if chairs:
         chair = chairs[0].user
     else:
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             # did the current user previously try to apply and got rejected?
             if SessionRole.objects.filter(session=session, user=request.user, role=SessionRole.SESSION_ROLE_CHAIR, status=False):
                 chair_denied = True
@@ -285,12 +285,12 @@ def session_detail(request, session_id):
     if runners:
         runner = runners[0].user
     else:
-        if request.user.is_authenticated():
+        if request.user.is_authenticated:
             # did the current user previously try to apply and got rejected?
             if SessionRole.objects.filter(session=session, user=request.user, role=SessionRole.SESSION_ROLE_RUNNER, status=False):
                 runner_denied = True
 
-    if request.method == "POST" and request.user.is_authenticated():
+    if request.method == "POST" and request.user.is_authenticated:
         if not hasattr(request.user, "profile") or not request.user.profile.is_complete:
             response = redirect("profile_edit")
             response["Location"] += "?next=%s" % request.path

@@ -39,7 +39,7 @@ def get_form(name):
 
 
 def proposal_submit(request):
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         messages.info(request, _("To submit a proposal, please "
                                  "<a href='{0}'>log in</a> and create a speaker profile "
                                  "via the dashboard.".format(settings.LOGIN_URL)))
@@ -68,7 +68,7 @@ def proposal_submit_kind(request, kind_slug):
 
     kind = get_object_or_404(ProposalKind, slug=kind_slug)
 
-    if not request.user.is_authenticated():
+    if not request.user.is_authenticated:
         return redirect("home")  # @@@ unauth'd speaker info page?
     else:
         try:
