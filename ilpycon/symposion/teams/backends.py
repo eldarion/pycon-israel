@@ -30,4 +30,5 @@ class TeamPermissionsBackend(object):
     def has_perm(self, user_obj, perm, obj=None):
         if not user_obj.is_active:
             return False
-        return perm in self.get_team_permissions(user_obj, obj)
+        print(perm, user_obj.is_superuser)
+        return user_obj.is_staff or perm in self.get_team_permissions(user_obj, obj)

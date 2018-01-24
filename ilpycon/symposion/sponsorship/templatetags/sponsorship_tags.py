@@ -37,6 +37,8 @@ class SponsorsNode(template.Node):
         else:
             queryset = Sponsor.objects.filter(level__conference=conference, active=True)\
                 .order_by("level__order", "added")
+            print(Sponsor.objects.filter(level__conference=conference))
+            print(Sponsor.objects.filter(level__conference=conference, active=True))
         context[self.context_var] = queryset
         return u""
 

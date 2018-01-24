@@ -4,7 +4,7 @@
 
 {% block head_title %}{{ team.name }}{% endblock %}
 
-{% block body_outer %}
+{% block body %}
     <div class="pull-right">
     {% if can_join %}
         <form method="post" action="{% url "team_join" team.slug %}">

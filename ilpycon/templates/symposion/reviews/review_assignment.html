@@ -20,13 +20,13 @@
                     <td>
                         <form method="post" action="{% url "review_assignment_opt_out" assignment.pk %}">
                             {% csrf_token %}
-                            <input type="submit" value="Opt-out" />
+                            <button class="btn btm-sm btn-outline-danger">Opt-out</button>
                         </form>
                     </td>
                 </tr>
             {% endfor %}
         </table>
     {% else %}
-        <p>You do not have any assignments.</p>
+        <p class="lead">You do not have any assignments.</p>
     {% endif %}
 {% endblock %}

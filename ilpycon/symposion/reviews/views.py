@@ -74,8 +74,7 @@ def review_section(request, section_slug, assigned=False, reviewed="all"):
     queryset = ProposalBase.objects.filter(kind__section=section.section)
 
     if assigned:
-        assignments = ReviewAssignment.objects.filter(user=request.user)\
-            .values_list("proposal__id")
+        assignments = ReviewAssignment.objects.filter(user=request.user).values_list("proposal__id")
         queryset = queryset.filter(id__in=assignments)
 
     # passing reviewed in from reviews.urls and out to review_list for

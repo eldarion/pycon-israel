@@ -4,7 +4,7 @@
 
 {% block head_title %}Upload File{% endblock %}
 
-{% block body_outer %}
+{% block body %}
     <h1>Upload File</h1>
     <form method="POST" action="{% url "file_create" %}" enctype="multipart/form-data">
         {% csrf_token %}
