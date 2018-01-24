@@ -15,10 +15,10 @@
     <form method="POST" action="" class="form-horizontal">
         {% csrf_token %}
         <legend>{% trans "Apply to Be a Sponsor" %}</legend>
-        {{ form|bootstrap_horizontal }}
+        {{ sponsor_form|bootstrap }}
         <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="Apply" />
             <a class="btn btn-secondary" href="{% url "dashboard" %}">Cancel</a>
+            <button class="btn btn-primary">Apply</button>
             <p class="help-block">
                 <small>By submitting this sponsor application you are agreeing to the <a href="{% url "pinax_pages:pages_page" "sponsor/terms/" %}" target="_blank">terms and conditions</a>.</small>
             </p>

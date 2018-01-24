@@ -12,7 +12,6 @@ from django.contrib import messages
 from django.contrib.admin.views.decorators import staff_member_required
 from django.http import Http404, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from django.template import RequestContext
 from django.utils.translation import ugettext_lazy as _
 
 from account.decorators import login_required
@@ -46,7 +45,7 @@ def sponsor_apply(request):
         form = SponsorApplicationForm(user=request.user)
 
     return render(request, "symposion/sponsorship/apply.html", {
-        "form": form,
+        "sponsor_form": form,
     })
 
 
@@ -66,7 +65,7 @@ def sponsor_add(request):
         form = SponsorApplicationForm(user=request.user)
 
     return render(request, "symposion/sponsorship/add.html", {
-        "form": form,
+        "sponsor_form": form,
     })
 
 
@@ -100,7 +99,7 @@ def sponsor_detail(request, pk):
 
     return render(request, "symposion/sponsorship/detail.html", {
         "sponsor": sponsor,
-        "form": form,
+        "sponsor_form": form,
         "formset": formset,
     })
 

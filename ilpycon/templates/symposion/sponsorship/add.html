@@ -12,10 +12,10 @@
     <form method="POST" action="{% url "sponsor_add" %}" class="form-horizontal">
         {% csrf_token %}
         <legend>{% trans "Add a Sponsor" %}</legend>
-        {{ form|bootstrap_horizontal }}
+        {{ sponsor_form|bootstrap_horizontal }}
         <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="Add" />
             <a class="btn btn-secondary" href="{% url "dashboard" %}">Cancel</a>
+            <button class="btn btn-primary">Add</button>
         </div>
     </form>
 

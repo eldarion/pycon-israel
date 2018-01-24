@@ -13,7 +13,7 @@
     <form enctype="multipart/form-data" method="POST" action="" class="form-horizontal">
         {% csrf_token %}
         <fieldset>
-            {{ form|bootstrap_horizontal }}
+            {{ sponsor_form|bootstrap_horizontal }}
         </fieldset>
 
         <h3>{{ sponsor.level }} Sponsor Benefits</h3>
@@ -32,8 +32,8 @@
         {% endfor %}
 
         <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="Save" />
             <a class="btn btn-secondary" href="{% url "dashboard" %}">Cancel</a>
+            <button class="btn btn-primary">Save</button>
         </div>
 
     </form>
