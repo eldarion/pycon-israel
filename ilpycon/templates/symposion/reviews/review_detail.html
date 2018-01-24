@@ -6,7 +6,7 @@
 
 {% block body %}
     {% if request.user.is_staff %}
-        <div class="pull-right">
+        <div class="">
             <form class="result-form form-inline" method="POST" action="">
                 {% csrf_token %}
                 <div class="btn-group">
@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                             {% else %}
-                                <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Undecided <span class="caret"></span></a>
+                                <a class="btn btn-outline-secondary btn-sm dropdown-toggle" data-toggle="dropdown" href="#">Undecided <span class="caret"></span></a>
                                 <div class="dropdown-menu pull-right" style="width: 200px; padding-left: 10px;">
                                     <div class="btn-group">
                                         <input type="submit" name="result_submit" value="accept" class="btn btn-xs btn-success" />
@@ -56,15 +56,15 @@
         </div>
     {% endif %}
 
-    <h3>#{{ proposal.number }}: {{ proposal.title }} ({{ proposal.speaker }})</h3>
+    <h3 class="mt-5">#{{ proposal.number }}: {{ proposal.title }} ({{ proposal.speaker }})</h3>
 
     <div class="tabbable">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#proposal-detail" data-toggle="tab">{% trans "Proposal Details" %}</a></li>
-            <li><a href="#proposal-reviews" data-toggle="tab">{% trans "Reviews" %} <span class="badge">{{ reviews|length }}</span></a></li>
-            <li><a href="#proposal-feedback" data-toggle="tab">{% trans "Speaker Feedback" %} <span class="badge">{{ proposal.messages.all|length }}</span></a></li>
+            <li class="nav-item"><a class="nav-link active" href="#proposal-detail" data-toggle="tab">{% trans "Proposal Details" %}</a></li>
+            <li class="nav-item"><a class="nav-link" href="#proposal-reviews" data-toggle="tab">{% trans "Reviews" %} <span class="badge badge-pill badge-primary">{{ reviews|length }}</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#proposal-feedback" data-toggle="tab">{% trans "Speaker Feedback" %} <span class="badge badge-pill badge-primary">{{ proposal.messages.all|length }}</span></a></li>
         </ul>
-        <div class="tab-content">
+        <div class="tab-content mt-4">
             <div class="tab-pane active" id="proposal-detail">
                 {% include "symposion/proposals/_proposal_fields.html" %}
             </div>
