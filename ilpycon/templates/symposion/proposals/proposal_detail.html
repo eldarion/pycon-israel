@@ -7,22 +7,22 @@
 {% block head_title %}{{ proposal.title }}{% endblock %}
 
 {% block body %}
-    <div class="pull-right">
+    <div class="mb-4">
         {% if not proposal.cancelled %}
             {% if request.user == proposal.speaker.user %}
-                <a href="{% url "proposal_edit" proposal.pk %}" class="btn btn-default">
+                <a href="{% url "proposal_edit" proposal.pk %}" class="btn btn-outline-info btn-sm">
                     {% trans "Edit this proposal" %}
                 </a>
-                <a href="{% url "proposal_cancel" proposal.pk %}" class="btn btn-default">
+                <a href="{% url "proposal_cancel" proposal.pk %}" class="btn btn-outline-info btn-sm">
                     {% trans "Cancel this proposal" %}
                 </a>
             {% else %}
-                <a href="{% url "proposal_leave" proposal.pk %}" class="btn btn-default">
+                <a href="{% url "proposal_leave" proposal.pk %}" class="btn btn-outline-info btn-sm">
                     {% trans "Remove me from this proposal" %}
                 </a>
             {% endif %}
         {% else %}
-            {% trans 'Cancelled' }
+            {% trans 'Cancelled' %}
         {% endif %}
     </div>
 
@@ -30,17 +30,17 @@
 
     <div class="tabbable">
         <ul class="nav nav-tabs">
-            <li class="active"><a href="#proposal-detail" data-toggle="tab">{% trans "Proposal Details" %}</a></li>
+            <li class="nav-item"><a class="nav-link active" href="#proposal-detail" data-toggle="tab">{% trans "Proposal Details" %}</a></li>
             {% if request.user == proposal.speaker.user %}
-                <li><a href="#proposal-documents" data-toggle="tab">{% trans "Supporting Documents" %}</a></li>
+                <li class="nav-item"><a class="nav-link" href="#proposal-documents" data-toggle="tab">{% trans "Supporting Documents" %}</a></li>
             {% endif %}
             {% if message_form %}
-                <li><a href="#proposal-feedback" data-toggle="tab">{% trans "Reviewer Feedback" %} <span class="badge">{{ proposal.messages.all|length }}</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#proposal-feedback" data-toggle="tab">{% trans "Reviewer Feedback" %} <span class="badge badge-pill badge-primary">{{ proposal.messages.all|length }}</span></a></li>
             {% endif %}
         </ul>
         <div class="tab-content">
             <div class="tab-pane active" id="proposal-detail">
-                {% include "proposals/_proposal_fields.html" %}
+                {% include "symposion/proposals/_proposal_fields.html" %}
             </div>
             {% if request.user == proposal.speaker.user %}
                 <div class="tab-pane" id="proposal-documents">
@@ -63,7 +63,7 @@
                     {% else %}
                         <p>{% trans 'No supporting documents attached to this proposal.' %}</p>
                     {% endif %}
-                    <a class="btn btn-sm{% if proposal.cancelled %} btn-disabled{% endif %}" href="{% url "proposal_document_create" proposal.pk %}"><i class="fa fa-upload"></i> {% trans 'Add Document' %}</a>
+                    <a class="btn btn-sm btn-primary{% if proposal.cancelled %} btn-disabled{% endif %}" href="{% url "proposal_document_create" proposal.pk %}"><i class="fa fa-upload"></i> {% trans 'Add Document' %}</a>
                 </div>
             {% endif %}
 

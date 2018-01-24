@@ -37,7 +37,8 @@
             {% else %}
                 <h5>Your Proposals</h5>
                 {% if user.speaker_profile.proposals.exists %}
-                    <table class="table">
+                <div class="table-container">
+                    <table class="table table-sm mt-4">
                         <tr>
                             <th>Title</th>
                             <th>Session type</th>
@@ -45,9 +46,10 @@
                             <th>Actions</th>
                         </tr>
                         {% for proposal in user.speaker_profile.proposals.all %}
-                            {% include "proposals/_proposal_row.html" %}
+                            {% include "symposion/proposals/_proposal_row.html" %}
                         {% endfor %}
                     </table>
+                </div>
                 {% else %}
                     <p class="lead mt-4">No proposals submitted yet.</p>
                 {% endif %}
@@ -63,7 +65,7 @@
                             <th>Actions</th>
                         </tr>
                         {% for proposal in associated_proposals %}
-                            {% include "proposals/_proposal_row.html" %}
+                            {% include "symposion/proposals/_proposal_row.html" %}
                         {% endfor %}
                     </table>
                 {% endif %}
@@ -79,7 +81,7 @@
                             <th>Actions</th>
                         </tr>
                         {% for proposal in pending_proposals %}
-                            {% include "proposals/_pending_proposal_row.html" %}
+                            {% include "symposion/proposals/_pending_proposal_row.html" %}
                         {% endfor %}
                     </table>
                 {% endif %}

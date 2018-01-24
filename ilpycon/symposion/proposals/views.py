@@ -126,8 +126,8 @@ def proposal_speaker_manage(request, pk):
                         Q(user=None, invite_email=email_address)
                     )
                 except Speaker.DoesNotExist:
-                    salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
-                    token = hashlib.sha1(salt + email_address).hexdigest()
+                    salt = hashlib.sha1(str(random.random()).encode("utf-8")).hexdigest()[:5]
+                    token = hashlib.sha1("{}{}".format(salt, email_address).encode("utf-8")).hexdigest()
                     pending = Speaker.objects.create(
                         invite_email=email_address,
                         invite_token=token,

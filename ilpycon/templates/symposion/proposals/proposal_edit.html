@@ -15,8 +15,8 @@
             {{ form|bootstrap }}
         </fieldset>
         <div class="form-actions">
-            <input class="btn btn-primary" type="submit" value="Save" />
-            <a class="btn btn-default" href="{% url "proposal_detail" proposal.pk %}">Cancel</a>
+            <a class="btn btn-secondary" href="{% url "proposal_detail" proposal.pk %}">Cancel</a>
+            <button class="btn btn-primary">Save</button>
         </div>
     </form>
 {% endblock %}

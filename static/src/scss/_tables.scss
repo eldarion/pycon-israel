@@ -1,4 +1,14 @@
-table {
-    @extend .table;
-    @extend .table-bordered;
+.card-body {
+    .table-container {
+        margin: 1.5rem -1.25rem 0 -1.25rem;
+        .table-sm th:first-child,
+        .table-sm td:first-child {
+            padding-left: 1.25rem;
+        }
+        .table-sm th:last-child,
+        .table-sm td:last-child {
+            padding-right: 1.25rem;
+            text-align: right;
+        }
+    }
 }

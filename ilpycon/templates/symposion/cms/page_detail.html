@@ -12,7 +12,7 @@
 {% block body %}
     {% if editable %}
         <div class="pull-right">
-            <a href="{% url 'pinax_pages:pages_page_edit' page.path %}" class="btn btn-default"><i class="fa fa-pencil fa-2x"></i> Edit this page</a>
+            <a href="{% url 'pinax_pages:pages_page_edit' page.path %}" class="btn btn-secondary"><i class="fa fa-pencil fa-2x"></i> Edit this page</a>
         </div>
     {% endif %}
     <h2>{{ page.title }}</h2>
