@@ -9,3 +9,4 @@ markdown
 pytz
 Pillow
 pinax-pages==0.5.0
+pinax-boxes==3.0.1
