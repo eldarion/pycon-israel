@@ -212,7 +212,7 @@ AUTHENTICATION_BACKENDS = [
     "ilpycon.symposion.teams.backends.TeamPermissionsBackend",
 
     # Auth backends
-    "account.auth_backends.EmailAuthenticationBackend",
+    "account.auth_backends.UsernameAuthenticationBackend",
 ]
 
 CONFERENCE_ID = 1
