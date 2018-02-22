@@ -15,7 +15,7 @@ urlpatterns = [
     path("account/", include("account.urls")),
 
     path("dashboard/", dashboard, name="dashboard"),
-    path("speaker/", include("ilpycon.symposion.speakers.urls")),
+    path("speakers/", include("ilpycon.symposion.speakers.urls")),
     path("proposals/", include("ilpycon.symposion.proposals.urls")),
     path("sponsors/", include("ilpycon.symposion.sponsorship.urls")),
     path("boxes/", include("pinax.boxes.urls")),
