@@ -192,6 +192,8 @@ LOGGING = {
     }
 }
 
+PINAX_BOXES_HOOKSET = "ilpycon.hooks.BoxesHookSet"
+
 FIXTURE_DIRS = [
     os.path.join(PROJECT_ROOT, "fixtures"),
 ]

@@ -2,6 +2,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: $background;
 }
 main {
   margin-top: 20px;
