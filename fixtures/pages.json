@@ -1,0 +1,30 @@
+[
+{
+  "model": "pinax_pages.page",
+  "pk": 1,
+  "fields": {
+    "title": "Venue",
+    "path": "venue/",
+    "body": "<div style=\"text-align: center\">\r\n    <h3>In 2018 we return to the <a href=\"https://wohl-center.com/\">Wohl Center</a> at BIU</h3>\r\n    <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.915966717669!2d34.84451231278844!3d32.07152152693281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4a1343bd3c2f%3A0xbae89ad91832f38a!2z157XqNeb15Yg15XXldeQ15TXnA!5e0!3m2!1sen!2sil!4v1519500574932\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>\r\n</div>",
+    "body_html": "<div style=\"text-align: center\">\n    <h3>In 2018 we return to the <a href=\"https://wohl-center.com/\">Wohl Center</a> at BIU</h3>\n    <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.915966717669!2d34.84451231278844!3d32.07152152693281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4a1343bd3c2f%3A0xbae89ad91832f38a!2z157XqNeb15Yg15XXldeQ15TXnA!5e0!3m2!1sen!2sil!4v1519500574932\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>\n</div>",
+    "status": 2,
+    "publish_date": "2018-02-28T00:07:21.930Z",
+    "created": "2018-02-28T00:07:21.930Z",
+    "updated": "2018-02-28T00:07:21.931Z"
+  }
+},
+{
+  "model": "pinax_pages.pagehistory",
+  "pk": 1,
+  "fields": {
+    "page": 1,
+    "title": "Venue",
+    "path": "venue/",
+    "body": "<div style=\"text-align: center\">\r\n    <h3>In 2018 we return to the <a href=\"https://wohl-center.com/\">Wohl Center</a> at BIU</h3>\r\n    <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.915966717669!2d34.84451231278844!3d32.07152152693281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4a1343bd3c2f%3A0xbae89ad91832f38a!2z157XqNeb15Yg15XXldeQ15TXnA!5e0!3m2!1sen!2sil!4v1519500574932\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>\r\n</div>",
+    "body_html": "<div style=\"text-align: center\">\n    <h3>In 2018 we return to the <a href=\"https://wohl-center.com/\">Wohl Center</a> at BIU</h3>\n    <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.915966717669!2d34.84451231278844!3d32.07152152693281!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4a1343bd3c2f%3A0xbae89ad91832f38a!2z157XqNeb15Yg15XXldeQ15TXnA!5e0!3m2!1sen!2sil!4v1519500574932\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>\n</div>",
+    "status": 2,
+    "publish_date": "2018-02-28T00:07:21.930Z",
+    "created": "2018-02-28T00:07:22.106Z"
+  }
+}
+]
