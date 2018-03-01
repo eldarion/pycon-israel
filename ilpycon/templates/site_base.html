@@ -16,6 +16,7 @@
     {% block extra_head %}{% endblock %}
 {% endblock %}
 
+{% block body_extra_attributes %}{% if LANGUAGE_BIDI %}dir="rtl"{% endif %}{% endblock %}
 
 {% block topbar_base %}
 <header>
@@ -41,6 +42,7 @@
                     </ul>
                 {% endblock %}
                 {% block account_bar %}{% include "_account_bar.html" %}{% endblock %}
+                {% block language_bar %}{% include "_language_bar.html" %}{% endblock %}
             </div>
         {% endblock %}
         </div>
