@@ -1,1 +1,1 @@
-web: gunicorn --log-file - ilpycon.wsgi
+web: gunicorn ilpycon.wsgi
