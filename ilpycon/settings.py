@@ -233,3 +233,13 @@ PROPOSAL_FORMS = {
     "tutorial": "ilpycon.proposals.forms.TutorialProposalForm",
     "talk": "ilpycon.proposals.forms.TalkProposalForm",
 }
+
+import django_heroku
+django_heroku.settings(locals())
+
+
+if "FORCE_SCRIPT_NAME" in os.environ:
+    FORCE_SCRIPT_NAME = os.environ["FORCE_SCRIPT_NAME"]
+    STATIC_URL = f"{FORCE_SCRIPT_NAME}{STATIC_URL}"
+    WHITENOISE_STATIC_PREFIX = "static/"
+
