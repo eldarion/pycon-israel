@@ -6,7 +6,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
-DEBUG = True
+DEBUG = bool(int(os.environ.get("DEBUG", "1")))
 
 DATABASES = {
     "default": {
@@ -154,6 +154,7 @@ INSTALLED_APPS = [
     # project
     "ilpycon",
     "ilpycon.proposals",
+    "ilpycon.proxy",
 
     # Symposion
     "ilpycon.symposion",
@@ -233,3 +234,13 @@ PROPOSAL_FORMS = {
     "tutorial": "ilpycon.proposals.forms.TutorialProposalForm",
     "talk": "ilpycon.proposals.forms.TalkProposalForm",
 }
+
+import django_heroku
+django_heroku.settings(locals())
+
+
+if "FORCE_SCRIPT_NAME" in os.environ:
+    FORCE_SCRIPT_NAME = os.environ["FORCE_SCRIPT_NAME"]
+    STATIC_URL = f"{FORCE_SCRIPT_NAME}{STATIC_URL}"
+    WHITENOISE_STATIC_PREFIX = "static/"
+
