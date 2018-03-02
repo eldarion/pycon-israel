@@ -17,6 +17,15 @@ npm run dev
 
 Browse to http://localhost:3000/
 
+## Common operations
+
+### Editing pages
+
+After editing static pages from the CMS, export them them into fixtures using the following command:
+```
+./manage.py dumpdata --indent 2 pinax_pages >fixtures/pages.json
+```
+
 ## Deploy a branch to Heroku
 
 - Use the `pycon.israel.devops@gmail.com` account to add site collaborators
